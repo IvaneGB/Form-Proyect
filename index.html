@@ -1,46 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Responsive Web Developer Starter - devchallenges.io</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="any">
-</head>
-<body>
-    <header>
-        <div class="get-started">Get started by editting <b>index.html</b></div>
-        <img class="logo" src="images/logo.svg" alt="Main Logo">
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Responsive Web Developer Starter - devchallenges.io</title>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon"
+            sizes="any">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            rel="stylesheet">
+    </head>
+    <body>
 
-    <main>
-        <img src="images/devchallenges-logo.svg" alt="A beautiful landscape">
-        <h3 class="title">Responsive Web Developer Starter</h3>
-    </main>
+        <div id="formContainer" class="formContainer">
+            <form id="myForm1" class="myForm1">
+                <h1 class="titleStyle">Register</h1>
+            
+                <label for="name" class="Label-color-tamaño">Name:</label>
+                <input type="text" id="name" name="name" class="InputStyles" placeholder="enter your name" required>
+                <p id="nameValidation" class="validationMessage"></p>
 
-    <footer>
-        <a class="link-card" href="https://devchallenges.io/" target="_blank">
-            <div class="link-title">Challenges</div>
-            <div class="link-description">Choose a challenge and start learning by building real-life projects.</div>
-        </a>
+                <label for="email" class="Label-color-tamaño">Email:</label>
+                <input type="email" id="email" name="email" class="InputStyles" placeholder="example@gmail.com" required>
+                <p id="emailValidation" class="validationMessage"></p>
 
-        <a class="link-card" href="https://devchallenges.io/challenges" target="_blank">
-            <div class="link-title">Solutions</div>
-            <div class="link-description">Checkout how orders solve the challenges, compare with yours and give them feedback.</div>
-        </a>
+                <input type="button" value="Continue" class="ButtonStyles" id="continueButton">
+            </form>
+            
 
-        <a class="link-card" href="https://devchallenges.io/" target="_blank">
-            <div class="link-title">Blogs</div>
-            <div class="link-description">Checkout devchallenges blogs, tutorials, updates. Find useful resources to get you started.</div>
-        </a>
+            <form id="myForm2" class="myForm2">
+                <!-- Título del formulario -->
+                <h1 class="titleStyle">Which topics are you interested in?</h1>
 
-        <a class="link-card" href="https://devchallenges.io/" target="_blank">
-            <div class="link-title">Deploy</div>
-            <div class="link-description">How to deploy and submit your solution.</div>
-        </a>
-       
-    </footer>
+                <!-- Opciones -->
+                <input type="checkbox" id="softwareDevelopment" name="interest"
+                    value="Software Development" class="checkboxStyles">
+                <label for="softwareDevelopment"
+                    class="labelCheckStyles">Software Development</label><br>
 
-    <script src="script.js"></script>
-</body>
+                <input type="checkbox" id="userExperience" name="interest"
+                    value="User Experience" class="checkboxStyles">
+                <label for="userExperience" class="labelCheckStyles">User
+                    Experience</label><br>
+
+                <input type="checkbox" id="graphicDesign" name="interest"
+                    value="Graphic Design" class="checkboxStyles">
+                <label for="graphicDesign" class="labelCheckStyles">Graphic
+                    Design</label><br>
+                <p id="checkboxValidation" class="validationMessage"></p>
+                <input type="button" value="Continue" class="ButtonStyles" id="continueButton2">
+            </form>
+
+            <div class="summary" id="summary">
+                <h1 class="titleStyle">Summary</h1>
+                <div class="">
+                    <p>Name: <span id="summaryName" class="summaryName"></span></p>
+                    <p>Email: <span id="summaryEmail" class="summaryEmail"></span></p>
+                    <p>Topics:</p>
+                    <ul id="summaryTopics" class="summaryTopics">
+                        
+                    </ul>
+                </div>
+                <input type="submit" value="Confirm" class="ButtonStyles" id="confirmButton">
+            </div>
+        </div>
+        <div class="StepsBox">
+            <p id="stepText" class="stepText">Step <span id="stepNumber">1</span> of 3</p>
+            <!-- Puntos para cada paso -->
+            <span class="stepDot pointActive" data-step="1"></span>
+            <span class="stepDot" data-step="2">&#8226;</span>
+            <span class="stepDot" data-step="3">&#8226;</span>
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
 </html>

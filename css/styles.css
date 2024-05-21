@@ -1,19 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@200;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 /* Reset some default styles */
-body, h1, h2, h3, p, ul, li {
+html {
+    font-size: 16px;
+  }
+/* body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
-}
+} */
 
-a {
+/* a {
     text-decoration: none;
     color: inherit;
-}
+} */
 
 * {
     box-sizing: border-box;
 }
+
+
 
 /* Add some styles for body*/
 body {
@@ -22,7 +28,7 @@ body {
     margin: 0 auto;
     background: #020617;
     color: #cbd5e1;
-    font-family: 'Sora', sans-serif;
+    font-family: "Inter", sans-serif;
     line-height: 1.5;
     background-image: radial-gradient(#0f172a 1px,transparent 0),radial-gradient(#0f172a 1px,transparent 0);
     background-position: 0 0,25px 25px;
@@ -31,82 +37,224 @@ body {
     overflow-x: hidden;
     padding: 4rem;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.get-started {
-    padding: 1rem 2rem;
-    border: 0.5px solid #1e293b;
-    background-color: #94a3b817;
-    border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: 200;
-    width: 100%;
-    text-align: center;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
-    row-gap: 0.5rem;
-    column-gap: 1.5rem;
+    flex-direction: column;
 }
 
-.title {
-    position: relative;
+.formContainer{
+  
+    border: solid 2px #4d5562;
+    background: #212936;
+    width: 35%;
+    border-radius: 15px;
+    padding: 2% 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.myForm1{
+    display: block;
+}
+
+/*Labels , Inputs , buttons */
+
+.titleStyle{
+    font-size: 1.4rem;
+    margin:0% 0% 5% 0%;
+}
+.Label-color-tamaño{   
+   
+    font-size: 11px;
+    color:#a1a1a9 ;
+}
+
+.InputStyles{
+
+    border: 2px solid #4d5563;
+    border-radius: 7.5px;
+    font-size: 11px;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box; 
+    outline: none; 
+    padding: 10px; 
+    color: #a1a1a9;
+    height: 42.5px; 
+    transition: 0.2s;
+}
+
+/* validacion  */
+
+.validationMessage{
+    color: red;
+    font-size: 0.5rem;
+    margin: 1% 0% 2% 5%;
+}
+
+/* Estilos de hover */
+.InputStyles:hover {
+    border-color: #7544de; /* Cambia el color del borde al pasar el ratón */
+}
+
+/* Estilos de focus (click) */
+.InputStyles:focus {
+    border-color: #7544de; /* Cambia el color del borde al hacer clic */
+    box-shadow: 0 0 0 1.5px #7544de; /* Agrega una sombra alrededor del input al hacer clic */
+}
+
+
+
+
+.ButtonStyles{
+    background-color: #7544de; 
+    border: none; 
+    border-radius: 30px; 
+    color: white; 
+    padding: 3%;
+    width: 40%;
+    height: 40px;
+    cursor: pointer; 
+    display: block;
+    margin: 0 auto; 
+    margin-top: 5%;
+    transition: background-color 0.3s;
+}
+
+/* Estilos cuando el cursor pasa sobre el botón */
+.ButtonStyles:hover {
+    background-color: #5a2d9f; /* Cambia el color de fondo al pasar el cursor */
+    
+}
+
+/* Estilos cuando se hace clic en el botón */
+.ButtonStyles:active {
+    background-color: #45249a; /* Un tono más claro del color de fondo */
+    font-size: 0.8rem;
+}
+
+/* Caja del paso a paso*/
+
+.StepsBox{
+    width: 15%;
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    font-size: 11px;
+    color: #a1a1a9;
+}
+
+#stepText{
+    margin-right: 5%;
+    color: #212936;
+}
+.stepDot {
+    font-size: 24px; 
     text-align: center;
+    width: 10%;
+    margin: 0 5px; 
 }
 
-.title::after {
-    content: "";
-    background: url('../images/blur-bg.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    bottom: -130px;
-    right: -75px;
-    width: 500px;
-    height: 250px;
-    opacity: 0.5;
+.pointActive {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #753ee4; /* Color del punto */
+    border: 5px solid #332d62; /* Borde que simula selección */
+    display: inline-block;
+    
+   }
+
+.point-next-step{
+    color: #753ee4;
 }
 
-.logo {
+/* Form 2*/
+
+.myForm2{
     display: none;
 }
 
+.checkboxStyles{
+   display: none;
+}
 
-.link-card {
-    padding: 1rem;
-    border: 0.5px solid transparent;
-    transition: all ease-in-out 50ms;
+.checkboxStyles + .labelCheckStyles{
+    display: inline-block;
+    margin: 2%;
+    padding: 2% 5%;
+    border: 2px solid #4d5563;
+    width: 98%;
+    height: 5vh;
+    border-radius: 10px;
+    font-size: 0.8em;
+    font-weight: 500;
+    background: #394050;
+    color: #999aa3;
     cursor: pointer;
+    transition: background 0.2s, color 0.2s;
 }
 
-.link-card:hover {
-    border: 0.5px solid #1e293b;
-    background-color: #94a3b817;
-    border-radius: 8px;
+.checkboxStyles:hover + .labelCheckStyles {
+    background: #5230aa; /* Cambia el fondo al pasar el cursor */
+    color: #f0f2f7;
+    border: none;
+    padding: 2.5% 5%;
 }
 
-.link-title {
-    font-size: 1.125rem;
+.checkboxStyles:checked + .labelCheckStyles {
+    background: #652cd1;
+    color: #e5e7eb;
 }
 
-.link-description {
-    font-size: 0.875rem;
-    font-weight: 200;
-    margin-top: 0.5rem;
-    color: #94a3b8;
+.checkboxStyles + .labelCheckStyles:active {
+    background: #45249a; /* Un tono más claro del color de fondo */
+    color: #f0f2f7; /* Cambia el color del texto */
 }
+
+/*Summary*/
+
+.summary{
+    display: none;
+    font-weight: 550;
+}
+
+.summary div span,
+.summary .summaryTopics {
+    color: #ffffff;
+    font-size: 1.06rem;
+}
+
+/* success message  */
+
+.success-message {
+    display: none; /* Inicialmente oculto */
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 15px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 5px;
+}
+
+.show {
+    display: block;
+}
+
+
+
+/* Estilos para el autocompletado mantenga los estilos asignados */
+.InputStyles:-webkit-autofill,
+.InputStyles:-webkit-autofill:hover {
+    -webkit-text-fill-color: #a1a1a9; /* Color del texto */
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset; /* Desactivar el resaltado de fondo */
+    transition: background-color 5000s ease-in-out 0s; /* Transición para evitar que se anulen los estilos */
+}
+
+
 
 @media screen and (min-width: 720px) {
     .logo {

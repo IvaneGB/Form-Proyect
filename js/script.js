@@ -1,2 +1,327 @@
-// Add some interactivity to the website
-console.log("Hello, world!");
+/*  Función para mostrar el siguiente Formulario*/
+
+// Obtener una referencia al botón
+const continueButton = document.getElementById("continueButton");
+const continueButton2 = document.getElementById("continueButton2");
+
+const form1 = document.getElementById("myForm1");
+const form2 = document.getElementById("myForm2");
+const summaryForm = document.getElementById("summary");
+let nameInput = document.getElementById("name");
+let emailInput = document.getElementById("email");
+let step = 1;
+const stepText = document.getElementById("stepText");
+let stepCounter = 1;
+let summaryName = document.getElementById("summaryName");
+let summaryEmail = document.getElementById("summaryEmail");
+let stepNumberSpan = document.getElementById('stepNumber');
+let checkboxsChecked = document.querySelectorAll('.checkboxStyles');
+let summaryTopicsList = document.getElementById('summaryTopics');
+let isChecked = false;
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const confirmButton = document.getElementById('confirmButton');
+
+    confirmButton.addEventListener('click', function () {
+        // Mostrar notificación de éxito
+        showSuccessMessage('Success! Your information has been submitted.');
+
+        // Recargar la página después de un breve retraso
+        setTimeout(function () {
+            location.reload();
+        }, 3000); //  5 segundos
+    });
+});
+
+function showSuccessMessage(message) {
+    let successMessage = document.createElement('div');
+    successMessage.className = 'success-message show';
+    successMessage.textContent = message;
+
+    document.body.appendChild(successMessage);
+
+    // Ocultar la notificación después de un tiempo
+    setTimeout(function () {
+        successMessage.classList.remove('show');
+        document.body.removeChild(successMessage);
+    }, 2000); //  4 segundos
+}
+
+// Agregar event listeners a los botones de continuar para llamar a la función de incremento
+continueButton.addEventListener('click', function () {
+    switchForms();
+});
+
+continueButton2.addEventListener('click', function () {
+    switchForms();
+});
+
+// Función para incrementar el contador y actualizar el número en el span del indicador de pasos
+function incrementStepCounter() {
+    stepCounter++; // Incrementar el contador en 1
+    stepNumberSpan.textContent = stepCounter; // Actualizar el contenido del span con el nuevo número
+    
+}
+
+ //función para saber si el checbo fue marcado y saber que opciones marco
+
+ function processCheckedCheckboxes() {
+
+    summaryTopicsList.innerHTML = ""; // Limpiar la lista antes de agregar nuevos elementos
+
+    checkboxsChecked.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            isChecked = true;
+            // Crea un nuevo elemento <li>
+            let listItem = document.createElement('li');
+            // Asigna el valor del checkbox como texto al elemento <li>
+            listItem.textContent = checkbox.value;
+            // Agrega el elemento <li> a la lista <ul>
+            summaryTopicsList.appendChild(listItem);
+        }
+    });
+
+    return isChecked; // Retornar si al menos un checkbox está marcado
+}
+
+// Función de validación del email
+function isValidEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+ // Función para validar los datos de los inputs
+ function validateInputs() {
+    let nameValidation = document.getElementById('nameValidation');
+    let emailValidation = document.getElementById('emailValidation');
+    let isValid = true;
+
+    if (!nameInput.value) {
+        nameValidation.textContent = "Please enter your name";
+        isValid = false;
+    } else {
+        nameValidation.textContent = "";
+    }
+
+    if (!emailInput.value) {
+        emailValidation.textContent = "Please enter your email";
+        isValid = false;
+    } else if (!isValidEmail(emailInput.value)) {
+        emailValidation.textContent = "Please enter a valid email address.";
+        isValid = false;
+    } else {
+        emailValidation.textContent = "";
+    }
+
+    return isValid;
+}
+
+// Actualizar clases de los puntos en la caja StepsBox para el siguiente paso
+function updateStepDots(step) {
+
+    let stepDots = document.querySelectorAll('.stepDot');
+
+    stepDots.forEach(function (dot, index) {
+        if (index === step - 2) { // Primer punto
+            dot.classList.add('point-next-step');
+            dot.innerHTML = '&#8226;';
+            dot.classList.remove('pointActive');
+        } else if (index === step - 1) { // Segundo punto
+            dot.classList.add('pointActive');
+            dot.innerHTML = '';
+            dot.classList.remove('point-next-step');
+        }
+    });
+}
+
+
+//función switchForms() para cambiar entre formularios
+function switchForms() {
+    // // Función de validación del email
+    // function isValidEmail(email) {
+    //     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //     return emailPattern.test(email);
+    // }
+
+    // // Mostrar mensajes de validación si es necesario
+    // function validateInputs() {
+    //     let nameValidation = document.getElementById('nameValidation');
+    //     let emailValidation = document.getElementById('emailValidation');
+
+    //     let isValid = true;
+
+    //     if (!nameInput.value) {
+    //         nameValidation.textContent = "Please enter your name";
+    //         isValid = false;
+    //     } else {
+    //         nameValidation.textContent = "";
+    //     }
+
+    //     if (!emailInput.value) {
+    //         emailValidation.textContent = "Please enter your email";
+    //         isValid = false;
+    //     } else if (!isValidEmail(emailInput.value)) {
+    //         emailValidation.textContent = "Please enter a valid email address.";
+    //         isValid = false;
+    //     } else {
+    //         emailValidation.textContent = "";
+    //     }
+
+    //     return isValid;
+    // }
+
+    // Validar inputs
+    if (!validateInputs()) {
+        return;
+    }
+
+    // Cambiar entre formularios
+    if (form1.style.display !== "none") {
+        form1.style.display = "none";
+        form2.style.display = "block";
+        incrementStepCounter();
+        step = 2;
+        updateStepDots(step);
+    } else if (form2.style.display !== "none") {
+        if (!processCheckedCheckboxes()) {
+            let checkboxValidation = document.getElementById('checkboxValidation');
+            checkboxValidation.textContent = "Please selection a option"
+            return;
+        }
+        form2.style.display = "none";
+        summaryForm.style.display = "block";
+        summaryName.innerHTML = nameInput.value;
+        summaryEmail.innerHTML = emailInput.value;
+        incrementStepCounter();
+        step = 3;
+        updateStepDots(step);
+    }
+
+    processCheckedCheckboxes();
+    // if (!nameInput.value || !emailInput.value || !isValidEmail(emailInput.value)) {
+
+    //     let nameValidation = document.getElementById('nameValidation');
+    //     let emailValidation = document.getElementById('emailValidation');
+
+    
+
+    //     if (nameInput.value === "") {
+    //         nameValidation.textContent = "Please enter your name";
+    //         return;
+    //     } else {
+    //         nameValidation.textContent = "";
+    //     }
+
+    //     if (emailInput.value === "") {
+    //         emailValidation.textContent = "Please enter your email";
+    //         return;
+    //     } else if(!isValidEmail(emailInput.value)){
+    //         emailValidation.innerHTML = 'Please enter a valid email address.';
+            
+    //     }else{
+    //         emailValidation.textContent = "";
+    //     }
+    // } else {
+
+    //     if (form1.style.display !== "none") { // Si el formulario 1 está visible
+    //         form1.style.display = "none"; // Ocultar formulario 1
+    //         form2.style.display = "block"; // Mostrar formulario 2
+    //         incrementStepCounter();
+    //         step = 2;
+    //     } else if (form2.style.display !== "none" && isChecked == true) { // Si el formulario 2 está visible
+    //         form2.style.display = "none"; // Ocultar formulario 2
+    //         summaryForm.style.display = "block"; // Mostrar formulario de resumen
+    //         summaryName.innerHTML = nameInput.value;
+    //         summaryEmail.innerHTML = emailInput.value;
+    //         incrementStepCounter();
+    //         step = 3;
+    //     }
+    // }
+
+
+    // if (!nameInput.value || !emailInput.value || !isValidEmail(emailInput.value)) {
+
+    //     let nameValidation = document.getElementById('nameValidation');
+    //     let emailValidation = document.getElementById('emailValidation');
+
+    //     nameValidation.innerHTML = 'Please enter your name.';
+    //     emailValidation.innerHTML = 'Please enter your email.';
+    //     emailValidation.innerHTML = 'Please enter a valid email address.';
+    // } else {
+
+    //     if (form1.style.display !== "none") { // Si el formulario 1 está visible
+    //         form1.style.display = "none"; // Ocultar formulario 1
+    //         form2.style.display = "block"; // Mostrar formulario 2
+    //         incrementStepCounter();
+    //         step = 2;
+    //     } else if (form2.style.display !== "none" && isChecked == true) { // Si el formulario 2 está visible
+    //         form2.style.display = "none"; // Ocultar formulario 2
+    //         summaryForm.style.display = "block"; // Mostrar formulario de resumen
+    //         summaryName.innerHTML = nameInput.value;
+    //         summaryEmail.innerHTML = emailInput.value;
+    //         incrementStepCounter();
+    //         step = 3;
+    //     }
+    // }
+
+   
+
+    // //función checkbo checked
+
+    // let checkboxsChecked = document.querySelectorAll('.checkboxStyles');
+    // let summaryTopicsList = document.getElementById('summaryTopics');
+    // let isChecked = false;
+
+    // checkboxsChecked.forEach(function (checkbox) {
+    //     if (checkbox.checked) {
+
+    //             isChecked = true;
+    //         // Crea un nuevo elemento <li>
+    //         var listItem = document.createElement('li');
+    //         // Asigna el valor del checkbox como texto al elemento <li>
+    //         listItem.textContent = checkbox.value;
+    //         // Agrega el elemento <li> a la lista <ul>
+    //         summaryTopicsList.appendChild(listItem);
+    //     }
+    // });
+
+    // Actualizar clases de los puntos en la StepsBox
+    // let stepDots = document.querySelectorAll('.stepDot');
+
+
+    // stepDots.forEach(function (dot, index) {
+    //     if (index === step - 2) { // Primer punto
+    //         dot.classList.add('point-next-step');
+    //         dot.innerHTML = '&#8226;';
+    //         dot.classList.remove('pointActive');
+    //     } else if (index === step - 1) { // Segundo punto
+    //         dot.classList.add('pointActive');
+    //         dot.innerHTML = '';
+    //         dot.classList.remove('point-next-step');
+    //     }
+    // });
+
+    //Si hubieras más puntos?
+    // stepDots.forEach(function (dot) {
+
+    //     if (parseInt(dot.getAttribute('data-step')) === step) {
+    //         const activeDot = stepDots[step - 1];
+    //         activeDot.classList.add('pointActive');
+    //         activeDot.innerHTML = '';
+    //          return;
+    //     } else if(){
+    //         dot.innerHTML = '&#8226;';
+    //         dot.classList.remove('pointActive');
+    //         dot.classList.add('point-next-step')
+    //     }
+    // })
+
+}
+
+
+//Funcion para seleccionar solo una opción del segundo formulario
+
+
+
