@@ -5,15 +5,6 @@
 html {
     font-size: 16px;
   }
-/* body, h1, h2, h3, p, ul, li {
-    margin: 0;
-    padding: 0;
-} */
-
-/* a {
-    text-decoration: none;
-    color: inherit;
-} */
 
 * {
     box-sizing: border-box;
@@ -30,12 +21,33 @@ body {
     color: #cbd5e1;
     font-family: "Inter", sans-serif;
     line-height: 1.5;
-    background-image: radial-gradient(#0f172a 1px,transparent 0),radial-gradient(#0f172a 1px,transparent 0);
-    background-position: 0 0,25px 25px;
-    background-attachment: fixed;
-    background-size: 50px 50px;
-    overflow-x: hidden;
-    padding: 4rem;
+    background-image: linear-gradient(
+        130deg,
+        hsl(261deg 65% 50%) 0%,
+        hsl(260deg 62% 45%) 0%,
+        hsl(259deg 59% 40%) 1%,
+        hsl(258deg 55% 35%) 4%,
+        hsl(256deg 51% 30%) 7%,
+        hsl(253deg 46% 25%) 11%,
+        hsl(248deg 40% 20%) 15%,
+        hsl(236deg 33% 15%) 21%,
+        hsl(222deg 36% 11%) 27%,
+        hsl(222deg 36% 11%) 33%,
+        hsl(222deg 36% 11%) 40%,
+        hsl(222deg 36% 11%) 47%,
+        hsl(222deg 36% 11%) 55%,
+        hsl(222deg 36% 11%) 62%,
+        hsl(222deg 36% 11%) 69%,
+        hsl(222deg 36% 11%) 75%,
+        hsl(236deg 33% 15%) 81%,
+        hsl(248deg 40% 20%) 86%,
+        hsl(253deg 46% 25%) 91%,
+        hsl(256deg 51% 30%) 95%,
+        hsl(258deg 55% 35%) 97%,
+        hsl(259deg 59% 40%) 99%,
+        hsl(260deg 62% 45%) 100%,
+        hsl(261deg 65% 50%) 100%
+      );    padding: 4rem;
     display: flex;
     justify-content:center;
     align-items: center;
@@ -107,7 +119,8 @@ body {
 
 
 .ButtonStyles{
-    background-color: #7544de; 
+    /* background-color: #7544de;  */
+    background-color: rgba(132, 94, 238);
     border: none; 
     border-radius: 30px; 
     color: white; 
