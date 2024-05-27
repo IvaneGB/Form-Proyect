@@ -276,11 +276,12 @@ body {
     .ButtonStyles {
         width: 35%;
         padding: 0 auto;
+        font-size: 10px;
     }
 
     .StepsBox {
         width: 55%;
-        font-size: 6px;
+        font-size: 10px;
     }
 }
 
@@ -294,6 +295,7 @@ body {
     .ButtonStyles {
         width: 35%;
         padding: 0 auto;
+        font-size: 0.8rem;
     }
 
     .titleStyle {
@@ -312,5 +314,9 @@ body {
     .StepsBox {
         width: 100%;
         font-size: 9px;
+    }
+
+    .success-message {
+        width: 50%;
     }
 }
