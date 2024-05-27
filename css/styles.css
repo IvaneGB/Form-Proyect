@@ -119,8 +119,9 @@ body {
 
 
 .ButtonStyles{
-    /* background-color: #7544de;  */
-    background-color: rgba(132, 94, 238);
+    background: rgb(131,58,180);
+    background: linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(101,44,209,1) 90%);
+    
     border: none; 
     border-radius: 30px; 
     color: white; 
@@ -131,19 +132,19 @@ body {
     display: block;
     margin: 0 auto; 
     margin-top: 5%;
-    transition: background-color 0.3s;
+    transition:0.4s;
 }
 
 /* Estilos cuando el cursor pasa sobre el botón */
 .ButtonStyles:hover {
-    background-color: #5a2d9f; /* Cambia el color de fondo al pasar el cursor */
-    
+    background: linear-gradient(180deg, rgba(151,78,200,1) 0%, rgba(121,64,229,1) 90%);
+
 }
 
 /* Estilos cuando se hace clic en el botón */
 .ButtonStyles:active {
-    background-color: #45249a; /* Un tono más claro del color de fondo */
-    font-size: 0.8rem;
+    background: linear-gradient(180deg, rgba(111,38,160,1) 0%, rgba(81,24,189,1) 90%);
+
 }
 
 /* Caja del paso a paso*/
@@ -155,12 +156,13 @@ body {
     justify-content: center;
     align-items:center ;
     font-size: 11px;
-    color: #a1a1a9;
+    /* color: #a1a1a9; */
+    color:#394150;
 }
 
 #stepText{
     margin-right: 5%;
-    color: #212936;
+    /* color:#394150 */
 }
 .stepDot {
     font-size: 24px; 
@@ -203,14 +205,22 @@ body {
     border-radius: 10px;
     font-size: 0.8em;
     font-weight: 500;
+
     background: #394050;
+
+
+
     color: #999aa3;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
 }
 
 .checkboxStyles:hover + .labelCheckStyles {
-    background: #5230aa; /* Cambia el fondo al pasar el cursor */
+    /* background: #5230aa; Cambia el fondo al pasar el cursor */
+    background: rgb(131,58,180);
+    background: linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(101,44,209,1) 90%);
+    
+    
     color: #f0f2f7;
     border: none;
     padding: 2.5% 5%;
@@ -219,6 +229,7 @@ body {
 .checkboxStyles:checked + .labelCheckStyles {
     background: #652cd1;
     color: #e5e7eb;
+    border: none;
 }
 
 .checkboxStyles + .labelCheckStyles:active {
