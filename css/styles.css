@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@200;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-/* Reset some default styles */
+
+/* Reset y Estilos Globales */
 html {
     font-size: 16px;
-  }
+}
 
 * {
     box-sizing: border-box;
 }
 
-
-
-/* Add some styles for body*/
+/*styles for body */
 body {
     min-height: 100vh;
     max-width: 1280px;
@@ -47,15 +46,17 @@ body {
         hsl(259deg 59% 40%) 99%,
         hsl(260deg 62% 45%) 100%,
         hsl(261deg 65% 50%) 100%
-      );    padding: 4rem;
+    );
+    padding: 4rem;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.formContainer{
-  
+/* Contenedores de Formularios */
+
+.formContainer {
     border: solid 2px #4d5562;
     background: #212936;
     width: 35%;
@@ -65,24 +66,36 @@ body {
     flex-direction: column;
 }
 
-.myForm1{
+.myForm1,
+.myForm2 {
     display: block;
 }
 
-/*Labels , Inputs , buttons */
+.myForm2 {
+    display: none;
+}
 
-.titleStyle{
+/* Tipografía y Estilos de Texto */
+
+.titleStyle {
     font-size: 1.4rem;
-    margin:0% 0% 5% 0%;
+    margin: 0 0 5% 0;
 }
-.Label-color-tamaño{   
-   
+
+.Label-color-tamaño {   
     font-size: 11px;
-    color:#a1a1a9 ;
+    color: #a1a1a9;
 }
 
-.InputStyles{
+.validationMessage {
+    color: red;
+    font-size: 0.5rem;
+    margin: 1% 0 2% 5%;
+}
 
+/* Estilos de Inputs */
+
+.InputStyles {
     border: 2px solid #4d5563;
     border-radius: 7.5px;
     font-size: 11px;
@@ -96,32 +109,28 @@ body {
     transition: 0.2s;
 }
 
-/* validacion  */
-
-.validationMessage{
-    color: red;
-    font-size: 0.5rem;
-    margin: 1% 0% 2% 5%;
-}
-
-/* Estilos de hover */
+/* Estilos de hover y focus para inputs */
 .InputStyles:hover {
-    border-color: #7544de; /* Cambia el color del borde al pasar el ratón */
+    border-color: #7544de;
 }
 
-/* Estilos de focus (click) */
 .InputStyles:focus {
-    border-color: #7544de; /* Cambia el color del borde al hacer clic */
-    box-shadow: 0 0 0 1.5px #7544de; /* Agrega una sombra alrededor del input al hacer clic */
+    border-color: #7544de;
+    box-shadow: 0 0 0 1.5px #7544de;
 }
 
+/* Estilos para el autocompletado mantenga los estilos asignados */
+.InputStyles:-webkit-autofill,
+.InputStyles:-webkit-autofill:hover {
+    -webkit-text-fill-color: #a1a1a9;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
 
+/* Estilos de Botones */
 
-
-.ButtonStyles{
-    background: rgb(131,58,180);
+.ButtonStyles {
     background: linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(101,44,209,1) 90%);
-    
     border: none; 
     border-radius: 30px; 
     color: white; 
@@ -132,38 +141,39 @@ body {
     display: block;
     margin: 0 auto; 
     margin-top: 5%;
-    transition:0.4s;
+    transition: background 0.3s ease, background-size 0.3s ease, background-position 0.3s ease;
+    background-size: 200% 200%;
+    background-position: 0% 0%;
 }
 
 /* Estilos cuando el cursor pasa sobre el botón */
 .ButtonStyles:hover {
     background: linear-gradient(180deg, rgba(151,78,200,1) 0%, rgba(121,64,229,1) 90%);
-
+    background-position: 100% 100%;
 }
 
 /* Estilos cuando se hace clic en el botón */
 .ButtonStyles:active {
     background: linear-gradient(180deg, rgba(111,38,160,1) 0%, rgba(81,24,189,1) 90%);
-
+    background-position: 50% 50%;
 }
 
-/* Caja del paso a paso*/
+/* Estilos de la caja de Pasos  */
 
-.StepsBox{
+.StepsBox {
     width: 15%;
     margin: 1%;
     display: flex;
     justify-content: center;
-    align-items:center ;
+    align-items: center;
     font-size: 11px;
-    /* color: #a1a1a9; */
-    color:#394150;
+    color: #394150;
 }
 
-#stepText{
+#stepText {
     margin-right: 5%;
-    /* color:#394150 */
 }
+
 .stepDot {
     font-size: 24px; 
     text-align: center;
@@ -175,27 +185,23 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: #753ee4; /* Color del punto */
-    border: 5px solid #332d62; /* Borde que simula selección */
+    background-color: #753ee4;
+    border: 5px solid #332d62;
     display: inline-block;
-    
-   }
+}
 
-.point-next-step{
+.point-next-step {
     color: #753ee4;
 }
 
-/* Form 2*/
+/* Estilos de Checkboxes */
 
-.myForm2{
+
+.checkboxStyles {
     display: none;
 }
 
-.checkboxStyles{
-   display: none;
-}
-
-.checkboxStyles + .labelCheckStyles{
+.checkboxStyles + .labelCheckStyles {
     display: inline-block;
     margin: 2%;
     padding: 2% 5%;
@@ -205,22 +211,14 @@ body {
     border-radius: 10px;
     font-size: 0.8em;
     font-weight: 500;
-
     background: #394050;
-
-
-
     color: #999aa3;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
 }
 
 .checkboxStyles:hover + .labelCheckStyles {
-    /* background: #5230aa; Cambia el fondo al pasar el cursor */
-    background: rgb(131,58,180);
-    background: linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(101,44,209,1) 90%);
-    
-    
+    background: #5230aa;
     color: #f0f2f7;
     border: none;
     padding: 2.5% 5%;
@@ -233,13 +231,13 @@ body {
 }
 
 .checkboxStyles + .labelCheckStyles:active {
-    background: #45249a; /* Un tono más claro del color de fondo */
-    color: #f0f2f7; /* Cambia el color del texto */
+    background: #45249a;
+    color: #f0f2f7;
 }
 
-/*Summary*/
+/* Estilos de la caja Summary y Mensaje de Éxito */
 
-.summary{
+.summary {
     display: none;
     font-weight: 550;
 }
@@ -250,11 +248,9 @@ body {
     font-size: 1.06rem;
 }
 
-/* success message  */
-
 .success-message {
-    display: none; /* Inicialmente oculto */
-    background-color: #4CAF50; /* Verde */
+    display: none;
+    background-color: #4CAF50;
     color: white;
     padding: 15px;
     position: fixed;
@@ -266,16 +262,6 @@ body {
 
 .show {
     display: block;
-}
-
-
-
-/* Estilos para el autocompletado mantenga los estilos asignados */
-.InputStyles:-webkit-autofill,
-.InputStyles:-webkit-autofill:hover {
-    -webkit-text-fill-color: #a1a1a9; /* Color del texto */
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset; /* Desactivar el resaltado de fondo */
-    transition: background-color 5000s ease-in-out 0s; /* Transición para evitar que se anulen los estilos */
 }
 
 
