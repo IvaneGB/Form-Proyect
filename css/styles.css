@@ -266,23 +266,51 @@ body {
 
 
 
-@media screen and (min-width: 720px) {
-    .logo {
-        display: initial;
+/* Media query para pantallas de móviles */
+@media screen and (max-width: 768px) {
+    .formContainer {
+        width: 100%;
+        padding: 5%;
     }
 
-    .get-started {
-        width: auto;
+    .ButtonStyles {
+        width: 35%;
+        padding: 0 auto;
     }
 
-    main {
-        flex-direction: row;
+    .StepsBox {
+        width: 55%;
+        font-size: 6px;
+    }
+}
+
+/* Media query para pantallas más pequeñas (teléfonos) */
+@media screen and (max-width: 480px) {
+    .formContainer {
+        width: 100%;
+        padding: 5%;
     }
 
-    footer {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
+    .ButtonStyles {
+        width: 35%;
+        padding: 0 auto;
     }
 
-  }
+    .titleStyle {
+        font-size: 1.2rem;
+    }
+
+    .Label-color-tamaño {
+        font-size: 10px;
+    }
+
+    .InputStyles {
+        font-size: 10px;
+        height: 40px;
+    }
+
+    .StepsBox {
+        width: 100%;
+        font-size: 9px;
+    }
+}
