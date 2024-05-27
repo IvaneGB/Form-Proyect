@@ -266,7 +266,7 @@ body {
 
 
 
-/* Media query para pantallas de móviles */
+/* Media query para pantallas móviles */
 @media screen and (max-width: 768px) {
     .formContainer {
         width: 100%;
